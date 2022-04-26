@@ -33,7 +33,7 @@ public class UsuarioRepositorio : IUsuarioRepositorio
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
             string sql = "SELECT 1 FROM usuario WHERE NombreUsuario = @NombreUsuario AND Contraseña= @Contraseña;";
-            valido = await conexion.ExecuteScalarAsync<bool>(sql, new { login.NombreUsuario, login.Contraseña });
+            valido = await conexion.ExecuteScalarAsync<bool>(sql, new {login.NombreUsuario, login.Contraseña});
         }
         catch (Exception ex)
         {
